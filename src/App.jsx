@@ -17,10 +17,23 @@ import Booking from './pages/Booking';
 import Wallet from './pages/Wallet';
 import Messages from './pages/Messages';
 import Home from './pages/Homepage'
-import AdminDashboard from './pages/admin/AdminDashboard';
 import ForgotPassword from './pages/ForgotPassword';
 import OtpVerification from './pages/OtpVerification';
 import Settings from './pages/Settings';
+import ProviderRegistration from './pages/ProviderRegistration';
+
+
+// Admin pages
+import AdminDashboard from './pages/admin/AdminDashboard';
+import VettingDashboard from './pages/admin/VettingDashboard';
+import AdminLayout from './pages/admin/AdminLayout';
+import AdminSidebar from './pages/admin/AdminSidebar'
+import DisputeResolution from './pages/admin/DisputeResolution';
+import EscrowManagement from './pages/admin/EscrowManagement';
+import TransactionAudit from './pages/admin/TransactionAudit';
+import ReviewModeration from './pages/admin/ReviewModeration';
+import PlatformAnalytics from './pages/admin/PlatformAnalytics';
+import CompletionCodesAudit from './pages/admin/CompletionCodesAudit';
 
 // Styles
 import './App.css';
@@ -90,11 +103,61 @@ function App() {
                     <Messages />
                   </ProtectedRoute>
                 } />
+                <Route path="/ProviderRegistration" element={
+                  <ProtectedRoute>
+                    <ProviderRegistration />
+                  </ProtectedRoute>
+                } />
                 
                 {/* Admin Routes */}
                 <Route path="/admin/*" element={
                   <ProtectedRoute requiredRole="admin">
                     <AdminDashboard />
+                  </ProtectedRoute>
+                } />
+                  <Route path="/admin/DisputeResolution" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <DisputeResolution />
+                  </ProtectedRoute>
+                } />
+                  <Route path="/admin/EscrowManagement" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <EscrowManagement />
+                  </ProtectedRoute>
+                } />
+                  <Route path="/admin/TransactionAudit" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <TransactionAudit />
+                  </ProtectedRoute>
+                } />
+                 <Route path="/admin/vetting" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <VettingDashboard />
+                  </ProtectedRoute>
+                } />
+                  <Route path="/admin/admin-layout" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <AdminLayout />
+                  </ProtectedRoute>
+                } />
+                  <Route path="/admin/Admin-sidebar" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <AdminSidebar />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/ReviewModeration" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <ReviewModeration />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/CompletionCodesAudit" element={
+                  <ProtectedRoute requiredRole="admin">
+                    <CompletionCodesAudit />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin/PlatformAnalytics" element={
+                  <ProtectedRoute requiredRole="admin">
+                    < PlatformAnalytics/>
                   </ProtectedRoute>
                 } />
                 
