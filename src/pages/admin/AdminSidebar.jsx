@@ -23,10 +23,8 @@ import {
   XMarkIcon,
   ClockIcon,
 } from '@heroicons/react/24/outline';
-import { useAuth } from '../../context/AuthContext';
 
 const AdminSidebar = ({ isMobile, onClose }) => {
-  const { user, logout } = useAuth();
   const location = useLocation();
   const [expandedItems, setExpandedItems] = useState({
     bookings: true,

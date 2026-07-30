@@ -2,11 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate, Navigate } from 'react-router-dom';
 import AdminSidebar from '../admin/AdminSidebar';
-import { useAuth } from '../../context/AuthContext';
 import { Bars3Icon, BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 const AdminLayout = () => {
-  const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);

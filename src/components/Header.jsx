@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '../../context/AuthContext';
 
 // Icons from @heroicons/react
 import {
@@ -22,7 +21,6 @@ import {
 // import logo from '../../assets/image/logo.png';
 
 const Header = ({ isScrolled = false, logoSrc = null }) => {
-  const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
@@ -48,7 +46,6 @@ const Header = ({ isScrolled = false, logoSrc = null }) => {
   };
 
   const handleLogout = () => {
-    logout();
     navigate('/');
     setIsUserDropdownOpen(false);
   };
@@ -143,89 +140,7 @@ const Header = ({ isScrolled = false, logoSrc = null }) => {
               Testimonials
             </button>
 
-            {user ? (
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
-                    isScrolled
-                      ? 'hover:bg-gray-100 text-gray-700'
-                      : 'hover:bg-white/10 text-white'
-                  }`}
-                >
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-semibold text-sm shadow-md">
-                    {user.firstName?.charAt(0)}{user.lastName?.charAt(0)}
-                  </div>
-                  <span className="text-sm font-medium hidden xl:inline">
-                    {user.firstName}
-                  </span>
-                  <ChevronDownIcon className={`w-4 h-4 transition-transform duration-200 ${isUserDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-
-                <AnimatePresence>
-                  {isUserDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
-                    >
-                      <div className="px-4 py-3 border-b border-gray-100">
-                        <div className="font-semibold text-gray-900">
-                          {user.firstName} {user.lastName}
-                        </div>
-                        <div className="text-sm text-gray-500 truncate">{user.email}</div>
-                        <div className="mt-1 text-xs text-gray-400 capitalize">Role: {user.role}</div>
-                      </div>
-                      <div className="p-2 space-y-1">
-                        <Link
-                          to="/dashboard"
-                          onClick={() => setIsUserDropdownOpen(false)}
-                          className="flex items-center gap-3 px-3 py-2.5 hover:bg-gray-50 rounded-lg transition-colors text-gray-700"
-                        >
-                          <BriefcaseIcon className="w-5 h-5 text-gray-400" />
-                          <span className="text-sm font-medium">Dashboard</span>
-                        </Link>
-                        <Link
-                          to="/wallet"
-                          onClick={() => setIsUserDropdownOpen(false)}
-                          className="flex items-center gap-3 px-3 py-2.5 hover:bg-gray-50 rounded-lg transition-colors text-gray-700"
-                        >
-                          <CreditCardIcon className="w-5 h-5 text-gray-400" />
-                          <span className="text-sm font-medium">Wallet</span>
-                        </Link>
-                        <Link
-                          to="/profile"
-                          onClick={() => setIsUserDropdownOpen(false)}
-                          className="flex items-center gap-3 px-3 py-2.5 hover:bg-gray-50 rounded-lg transition-colors text-gray-700"
-                        >
-                          <UserCircleIcon className="w-5 h-5 text-gray-400" />
-                          <span className="text-sm font-medium">Profile</span>
-                        </Link>
-                        <Link
-                          to="/settings"
-                          onClick={() => setIsUserDropdownOpen(false)}
-                          className="flex items-center gap-3 px-3 py-2.5 hover:bg-gray-50 rounded-lg transition-colors text-gray-700"
-                        >
-                          <Cog6ToothIcon className="w-5 h-5 text-gray-400" />
-                          <span className="text-sm font-medium">Settings</span>
-                        </Link>
-                      </div>
-                      <div className="border-t border-gray-100 p-2">
-                        <button
-                          onClick={handleLogout}
-                          className="w-full flex items-center gap-3 px-3 py-2.5 hover:bg-red-50 rounded-lg transition-colors text-red-600"
-                        >
-                          <ArrowRightOnRectangleIcon className="w-5 h-5" />
-                          <span className="text-sm font-medium">Sign Out</span>
-                        </button>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ) : (
+            
               <div className="flex items-center space-x-4">
                 <Link
                   to="/login"
@@ -251,7 +166,7 @@ const Header = ({ isScrolled = false, logoSrc = null }) => {
                   <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Link>
               </div>
-            )}
+          
           </nav>
 
           {/* Mobile Menu Button */}
@@ -303,32 +218,7 @@ const Header = ({ isScrolled = false, logoSrc = null }) => {
                 Testimonials
               </button>
               <hr className="border-gray-200" />
-              {user ? (
-                <div className="space-y-2">
-                  <div className="px-4 py-2 bg-gray-50 rounded-xl">
-                    <div className="font-semibold text-gray-900">
-                      {user.firstName} {user.lastName}
-                    </div>
-                    <div className="text-sm text-gray-500 truncate">{user.email}</div>
-                  </div>
-                  <Link
-                    to="/dashboard"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block w-full px-4 py-2.5 bg-blue-600 text-white rounded-xl font-semibold text-center hover:bg-blue-700 transition-colors"
-                  >
-                    Dashboard
-                  </Link>
-                  <button
-                    onClick={() => {
-                      handleLogout();
-                      setIsMenuOpen(false);
-                    }}
-                    className="block w-full px-4 py-2.5 text-red-600 hover:bg-red-50 rounded-xl text-center font-medium transition-colors"
-                  >
-                    Sign Out
-                  </button>
-                </div>
-              ) : (
+            
                 <div className="space-y-3">
                   <Link
                     to="/login"
@@ -345,7 +235,7 @@ const Header = ({ isScrolled = false, logoSrc = null }) => {
                     Get Started
                   </Link>
                 </div>
-              )}
+              
             </div>
           </motion.div>
         )}

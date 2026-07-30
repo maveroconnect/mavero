@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
-import { AuthProvider } from "./context/AuthContext";
-import { SocketProvider } from "./context/SocketContext";  // named import
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 // Pages
@@ -52,8 +50,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <AuthProvider>
-          <SocketProvider>
             <div className="min-h-screen bg-white">
               <Routes>
                 <Route path="/" element={<LandingPage />} />
@@ -63,7 +59,7 @@ function App() {
                 <Route path="/otpverification" element={<OtpVerification />} />
                 
                 {/* Protected Routes */}
-                <Route path="/dashboard" element={
+                {/* <Route path="/dashboard" element={
                   <ProtectedRoute>
                     <Dashboard />
                   </ProtectedRoute>
@@ -107,10 +103,10 @@ function App() {
                   <ProtectedRoute>
                     <ProviderRegistration />
                   </ProtectedRoute>
-                } />
+                } /> */}
                 
                 {/* Admin Routes */}
-                <Route path="/admin/*" element={
+                {/* <Route path="/admin/*" element={
                   <ProtectedRoute requiredRole="admin">
                     <AdminDashboard />
                   </ProtectedRoute>
@@ -159,7 +155,7 @@ function App() {
                   <ProtectedRoute requiredRole="admin">
                     < PlatformAnalytics/>
                   </ProtectedRoute>
-                } />
+                } /> */}
                 
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
@@ -188,8 +184,6 @@ function App() {
                 }}
               />
             </div>
-          </SocketProvider>
-        </AuthProvider>
       </Router>
     </QueryClientProvider>
   );

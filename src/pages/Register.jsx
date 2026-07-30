@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '../context/AuthContext';
 import logo from '../assets/image/logo.jpeg';
 
 import {
@@ -65,7 +64,6 @@ const PasswordStrength = ({ password }) => {
 };
 
 const Register = () => {
-  const { register: registerUser } = useAuth();
   const navigate = useNavigate();
 
   const [step, setStep] = useState(1); // 1: Role, 2: Basic Info, 3: Provider Details

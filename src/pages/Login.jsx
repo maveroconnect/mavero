@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '../context/AuthContext';
 import logo from '../assets/image/logo.jpeg';
 
 import {
@@ -15,7 +14,6 @@ import {
 } from '@heroicons/react/24/outline';
 
 const Login = () => {
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   // Login method: 'email' or 'phone'

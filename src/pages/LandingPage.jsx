@@ -2,9 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '../context/AuthContext';
-import Header from '../components/Landing/Header';
-import Footer from '../components/Landing/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import logo from '../assets/image/logo.jpeg';
 
 import {
@@ -118,7 +117,6 @@ const stats = [
 
 // ---------- Component ----------
 const LandingPage = () => {
-  const { user } = useAuth();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);

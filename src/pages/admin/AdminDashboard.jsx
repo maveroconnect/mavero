@@ -26,7 +26,6 @@ import {
   CalendarIcon,
   StarIcon,
 } from '@heroicons/react/24/outline';
-import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 
 // ----------------------------
@@ -166,7 +165,6 @@ const getActivityIcon = (type) => {
 // ----------------------------
 
 const AdminDashboard = () => {
-  const { user } = useAuth();
   const navigate = useNavigate();
   const [stats, setStats] = useState(mockStats);
   const [recentBookings, setRecentBookings] = useState(mockRecentBookings);

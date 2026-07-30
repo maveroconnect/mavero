@@ -24,7 +24,6 @@ import {
   QrCodeIcon,
   GiftIcon,
 } from '@heroicons/react/24/outline';
-import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
 // ----------------------------
@@ -206,7 +205,6 @@ const getStatusBadge = (status) => {
 };
 
 const Wallet = () => {
-  const { user } = useAuth();
   const [wallet, setWallet] = useState(mockWallet);
   const [transactions, setTransactions] = useState(mockTransactions);
   const [pendingWithdrawals, setPendingWithdrawals] = useState(mockPendingWithdrawals);

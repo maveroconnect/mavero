@@ -28,7 +28,6 @@ import {
   LanguageIcon,
   Cog6ToothIcon,
 } from '@heroicons/react/24/outline';
-import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
 // Helper to format Naira
@@ -37,7 +36,6 @@ const formatNaira = (amount) => {
 };
 
 const Settings = () => {
-  const { user, updateUser, logout } = useAuth();
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
 

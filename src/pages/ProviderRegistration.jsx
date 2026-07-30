@@ -25,7 +25,6 @@ import {
   BoltIcon,
   ScissorsIcon,
 } from '@heroicons/react/24/outline';
-import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
 // Service categories for selection
@@ -46,7 +45,6 @@ const formatNaira = (amount) => {
 };
 
 const ProviderRegistration = () => {
-  const { user } = useAuth(); // user might be null initially
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);

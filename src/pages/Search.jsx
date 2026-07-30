@@ -28,7 +28,6 @@ import {
   ShieldCheckIcon,
   CurrencyDollarIcon,
 } from '@heroicons/react/24/outline';
-import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
 // ----------------------------
@@ -283,7 +282,6 @@ const getStars = (rating) => {
 };
 
 const Search = () => {
-  const { user } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const initialQuery = searchParams.get('q') || '';

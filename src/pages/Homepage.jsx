@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '../context/AuthContext';
 import logo from '../assets/image/logo.jpeg'; // <-- Import your logo
 
 // Icons
@@ -225,7 +224,6 @@ const FundWalletModal = ({ isOpen, onClose, onFund }) => {
 
 // ---------- Main HomePage Component ----------
 const HomePage = () => {
-  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const [wallet, setWallet] = useState(mockWallet);
