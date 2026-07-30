@@ -21,6 +21,7 @@ import Settings from './pages/Settings';
 import ProviderRegistration from './pages/ProviderRegistration';
 
 
+
 // Admin pages
 import AdminDashboard from './pages/admin/AdminDashboard';
 import VettingDashboard from './pages/admin/VettingDashboard';
@@ -57,6 +58,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/otpverification" element={<OtpVerification />} />
+          
                 
                 {/* Protected Routes */}
                 {/* <Route path="/dashboard" element={
