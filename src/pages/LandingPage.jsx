@@ -262,7 +262,7 @@ function Hero() {
               <div className="overflow-hidden rounded-[2rem] bg-blue-100 shadow-2xl shadow-blue-950/10">
 
                 <img
-                  src="https://i.pinimg.com/1200x/03/fe/80/03fe80dbeeb576549154b2773565c796.jpg"
+                  src="https://i.pinimg.com/1200x/2d/29/09/2d29096a1df0a3d55d6f2f618d5ab782.jpg"
                   alt="Professional service provider"
                   className="h-[520px] w-full object-cover transition duration-700 hover:scale-105"
                 />
@@ -608,7 +608,7 @@ function Customers() {
             <div className="relative">
 
               <img
-                src="https://i.pinimg.com/736x/cc/ee/96/ccee968f42ea7a8b59c3f123a00f0594.jpg"
+                src="https://i.pinimg.com/736x/b9/44/64/b944643d3c6fee72008dfec30a4095c3.jpg"
                 alt="Customer and professional"
                 className="h-[500px] w-full rounded-[2rem] object-cover"
               />
@@ -786,7 +786,7 @@ function Providers() {
               <div className="overflow-hidden rounded-[2rem] border border-white/10">
 
                 <img
-                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=90"
+                  src="https://i.pinimg.com/736x/21/a2/fb/21a2fbb371dfb26d7b59f005c2c9f8c7.jpg"
                   alt="Professional service provider"
                   className="h-[500px] w-full object-cover"
                 />
