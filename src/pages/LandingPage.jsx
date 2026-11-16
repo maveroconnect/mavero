@@ -1118,7 +1118,7 @@ function DownloadSection() {
               </h2>
 
               <p className="mt-6 max-w-lg text-sm leading-7 text-blue-100">
-                Download the Mavero app to discover
+                Join the Mavero community to discover
                 professional services, connect with providers
                 and manage your service experience wherever
                 you are.
@@ -1127,10 +1127,6 @@ function DownloadSection() {
               <div className="mt-8">
                 <AppDownload />
               </div>
-
-              <p className="mt-5 text-[10px] text-blue-300">
-                Available on Android and iOS.
-              </p>
 
             </div>
 
